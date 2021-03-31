@@ -1,26 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Wisielec
 {
     public partial class Form1 : Form
     {
-        string word;
-        int tryNumber = 0;
-        int faults = 0;
-        int success = 0;
+        private string word;
+        private int tryNumber = 0;
+        private int faults = 0;
+        private int success = 0;
 
         public Form1()
         {
             InitializeComponent();
-            
+
             startGame();
         }
 
@@ -36,7 +29,6 @@ namespace Wisielec
             label7.Text = Convert.ToString(word[6]);
         }
 
-
         private static string setRandomWord()
         {
             string[] words = { "tulipan", "marchew", "potwarz", "kompakt", "telefon", "frędzel", "pokemon", "majster", "patefon", "program", "piernik", "elegant", "bateria" };
@@ -51,7 +43,7 @@ namespace Wisielec
             Boolean flag = false;
             tryNumber++;
 
-            for (int i=1; i<6; i++)
+            for (int i = 1; i < 6; i++)
             {
                 if (Convert.ToString(word[i]).Equals(textInput.Text))
                 {
@@ -87,19 +79,17 @@ namespace Wisielec
             if (faults == 2) { pictureBox1.Image = Wisielec.Properties.Resources._2; }
             if (faults == 3) { pictureBox1.Image = Wisielec.Properties.Resources._3; }
             if (faults == 4) { pictureBox1.Image = Wisielec.Properties.Resources._4; }
-            if (faults == 5) {
+            if (faults == 5)
+            {
                 pictureBox1.Image = Wisielec.Properties.Resources._5;
                 button1.Text = "PRZEGRAŁEŚ";
                 button1.Enabled = false;
             }
         }
 
-
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
-
 
         private void textInput_KeyDown(object sender, KeyEventArgs e)
         {
@@ -107,7 +97,6 @@ namespace Wisielec
             {
                 e.SuppressKeyPress = true;
                 button1.PerformClick();
-                
             }
         }
 
